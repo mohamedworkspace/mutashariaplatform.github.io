@@ -1,0 +1,234 @@
+/* === استيراد الخطوط === */
+@font-face {
+    font-family: 'KhattZokhrofi'; /* اسم افتراضي لخط زخرفي للعناوين */
+    src: url('fonts/ArefRuqaa-Bold.woff2') format('woff2'), /* استبدل بالمسار الصحيح لخط العنوان */
+         url('fonts/ArefRuqaa-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap; /* لتحسين تجربة تحميل الخط */
+}
+
+@font-face {
+    font-family: 'KhattNaskhWadeh'; /* اسم افتراضي لخط النسخ الواضح */
+    src: url('fonts/NotoNaskhArabic-Regular.woff2') format('woff2'), /* استبدل بالمسار الصحيح لخط المتن */
+         url('fonts/NotoNaskhArabic-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'KhattNaskhWadeh';
+    src: url('fonts/NotoNaskhArabic-Bold.woff2') format('woff2'), /* وزن سميك لخط المتن إذا لزم الأمر */
+         url('fonts/NotoNaskhArabic-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* === التنسيقات العامة === */
+body {
+    font-family: 'KhattNaskhWadeh', 'Noto Naskh Arabic', Arial, sans-serif; /* خط أساسي مع بدائل */
+    margin: 0;
+    padding: 0;
+    background-color: #E0F7FA; /* أزرق فاتح جداً للخلفية العامة */
+    color: #01579B; /* أزرق داكن للنص الافتراضي */
+    line-height: 1.6;
+    direction: rtl; /* ضمان اتجاه النص من اليمين لليسار */
+}
+
+.quiz-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #FFFFFF; /* خلفية بيضاء لحاوية الاختبار الرئيسية */
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    /* يمكن إضافة صورة خلفية زخرفية خفيفة هنا */
+    /* background-image: url('images/light_blue_islamic_pattern_subtle.svg'); */
+    /* background-size: contain; */
+    /* background-repeat: repeat; */
+    border: 2px solid #A0D2DB; /* إطار أزرق متوسط */
+}
+
+/* === الترويسة === */
+.quiz-header {
+    text-align: center;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #A0D2DB; /* فاصل أزرق متوسط */
+}
+
+.header-decoration {
+    width: 80px; /* اضبط الحجم حسب الحاجة */
+    height: auto;
+    margin-bottom: 10px;
+    opacity: 0.7; /* لجعلها أقل بروزاً */
+}
+
+.quiz-header h1 {
+    font-family: 'KhattZokhrofi', 'Aref Ruqaa', serif; /* خط زخرفي للعناوين */
+    color: #0277BD; /* أزرق أغمق قليلاً للعنوان الرئيسي */
+    font-size: 2.5em; /* حجم أكبر للعنوان */
+    margin-bottom: 5px;
+}
+
+.quiz-header p {
+    font-size: 1.1em;
+    color: #01579B; /* أزرق داكن للنص الفرعي */
+}
+
+/* === منطقة السؤال والخيارات === */
+#question-area {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #F0FAFD; /* خلفية زرقاء فاتحة جداً لمنطقة السؤال */
+    border-radius: 8px;
+}
+
+#question-text {
+    font-size: 1.4em; /* حجم خط واضح للسؤال */
+    font-weight: bold; /* جعل نص السؤال سميكاً */
+    margin-bottom: 15px;
+    color: #004D40; /* لون متباين للنص */
+}
+
+#options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* مسافة بين الخيارات */
+}
+
+.option {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    background-color: #FFFFFF;
+    border: 1px solid #A0D2DB; /* إطار أزرق متوسط للخيارات */
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.option:hover {
+    background-color: #E1F5FE; /* تظليل خفيف عند التحويم */
+    border-color: #4FC3F7;
+}
+
+.option input[type="radio"],.option input[type="checkbox"] {
+    margin-inline-end: 10px; /* مسافة بين زر الراديو والنص (RTL) */
+    accent-color: #0277BD; /* لون علامة الاختيار */
+}
+
+.option label {
+    font-size: 1.1em;
+    color: #01579B;
+    flex-grow: 1; /* لجعل الليبل يملأ المساحة المتاحة */
+}
+
+/* === منطقة التغذية الراجعة === */
+#feedback-area {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: bold;
+}
+
+#feedback-text.correct {
+    background-color: #D4EFDF; /* أخضر فاتح للإجابة الصحيحة */
+    color: #196F3D;
+    border: 1px solid #A9DFBF;
+}
+
+#feedback-text.incorrect {
+    background-color: #FADBD8; /* أحمر فاتح للإجابة الخاطئة */
+    color: #A93226;
+    border: 1px solid #F5B7B1;
+}
+
+/* === أزرار التفاعل === */
+.quiz-navigation {
+    display: flex;
+    justify-content: center; /* توسيط الأزرار */
+    gap: 15px; /* مسافة بين الأزرار إذا كان هناك أكثر من زر ظاهر */
+    margin-top: 20px;
+}
+
+.quiz-button {
+    font-family: 'KhattNaskhWadeh', 'Noto Naskh Arabic', sans-serif;
+    background-color: #4FC3F7; /* أزرق أساسي للأزرار */
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1.1em;
+    border-radius: 25px; /* حواف دائرية أكثر */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.quiz-button:hover {
+    background-color: #0288D1; /* أزرق أغمق عند التحويم */
+    transform: translateY(-2px); /* تأثير رفع بسيط */
+}
+
+.quiz-button:disabled {
+    background-color: #B0BEC5; /* رمادي للأزرار المعطلة */
+    cursor: not-allowed;
+}
+
+/* === الفوتر ومنطقة النتيجة === */
+.quiz-footer {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid #A0D2DB; /* فاصل أزرق متوسط */
+    font-size: 0.9em;
+    color: #01579B;
+}
+
+#score-area p {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+/* === تنسيقات خاصة بالخيارات عند الإجابة === */
+.option.correct-answer {
+    background-color: #C8E6C9!important; /* أخضر فاتح جداً للخيار الصحيح بعد الإجابة */
+    border-color: #81C784!important;
+}
+.option.selected-wrong {
+    background-color: #FFCDD2!important; /* أحمر فاتح جداً للخيار الخاطئ الذي اختاره المستخدم */
+    border-color: #E57373!important;
+}
+.option.disabled {
+    pointer-events: none; /* منع النقر على الخيارات بعد الإجابة */
+    opacity: 0.7;
+}
+
+
+/* === التصميم المتجاوب (Responsive Design) === */
+@media (max-width: 600px) {
+   .quiz-container {
+        margin: 10px;
+        padding: 15px;
+    }
+
+   .quiz-header h1 {
+        font-size: 2em;
+    }
+
+    #question-text {
+        font-size: 1.2em;
+    }
+
+   .option label {
+        font-size: 1em;
+    }
+
+   .quiz-button {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+}

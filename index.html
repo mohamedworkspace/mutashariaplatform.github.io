@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار تفاعلي: القول الشارح</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <header class="quiz-header">
+            <img src="images/islamic_decoration_light_blue.svg" alt="زخرفة إسلامية" class="header-decoration">
+            <h1>اختبار تفاعلي في درس القول الشارح</h1>
+            <p>من كتاب إيساغوجي في علم المنطق</p>
+        </header>
+
+        <main id="quiz-main">
+            <div id="question-area">
+                <p id="question-text">نص السؤال سيظهر هنا...</p>
+                <div id="options-container">
+                    </div>
+            </div>
+
+            <div id="feedback-area">
+                <p id="feedback-text"></p>
+            </div>
+
+            <div class="quiz-navigation">
+                <button id="submit-button" class="quiz-button">تحقق من الإجابة</button>
+                <button id="next-button" class="quiz-button" style="display: none;">السؤال التالي</button>
+            </div>
+        </main>
+
+        <footer class="quiz-footer">
+            <div id="score-area" style="display: none;">
+                <p>النتيجة: <span id="score">0</span> / <span id="total-questions">0</span></p>
+            </div>
+            <p class="copyright-text">&copy; 2024 - جميع الحقوق محفوظة (اسم الجهة أو الفرد)</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="script2.js"></script>
+</body>
+</html>
